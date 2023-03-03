@@ -207,7 +207,7 @@ int main(int argc, char** argv)
           
                 vector<vector<cv::Point>> cnts;
                 cnts.push_back(cnt);
-                cv::drawContours(processed_im_copy, cnts, 0, Scalar(0, 65535, 65535/n_contours*it), CV_FILLED);
+                cv::drawContours(processed_im_copy, cnts, 0, Scalar(0, 65535, 65535/n_contours*it), cv::FILLED);
                 if (!displaying_info && pointPolygonTest(cnt, cursor_pos, false) > 0)
                 {
                   if (it == max_it-1)
@@ -269,7 +269,7 @@ int main(int argc, char** argv)
           
                 vector<vector<cv::Point>> cnts;
                 cnts.push_back(cnt);
-                cv::drawContours(rgb_im, cnts, 0, Scalar(0, 255, 255/n_contours*it), CV_FILLED);
+                cv::drawContours(rgb_im, cnts, 0, Scalar(0, 255, 255/n_contours*it), cv::FILLED);
               }
             } else
             {
@@ -294,7 +294,7 @@ int main(int argc, char** argv)
           
                 vector<vector<cv::Point>> cnts;
                 cnts.push_back(cnt);
-                cv::drawContours(dm_im_colormapped, cnts, 0, Scalar(0, 255, 255/n_contours*it), CV_FILLED);
+                cv::drawContours(dm_im_colormapped, cnts, 0, Scalar(0, 255, 255/n_contours*it), cv::FILLED);
               }
             } else
             {

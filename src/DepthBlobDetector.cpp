@@ -247,7 +247,7 @@ void DepthBlobDetector::findBlobs(cv::Mat binary_image, cv::Mat orig_image, cv::
     {
       const Rect roi = boundingRect(contours[contourIdx]);
       Mat blob_mask(roi.size(), CV_8UC1, cv::Scalar(0));
-      drawContours(blob_mask, contours, contourIdx, Scalar(1), CV_FILLED, LINE_8, noArray(), 0, -roi.tl());
+      drawContours(blob_mask, contours, contourIdx, Scalar(1), cv::FILLED, LINE_8, noArray(), 0, -roi.tl());
       const double avg_color = median(orig_image(roi), blob_mask, n_known_pixels);
       /* const double avg_color = median(orig_image, contours[contourIdx], n_known_pixels); */
 
@@ -272,7 +272,7 @@ void DepthBlobDetector::findBlobs(cv::Mat binary_image, cv::Mat orig_image, cv::
       {
         const Rect roi = boundingRect(contours[contourIdx]);
         Mat blob_mask(roi.size(), CV_8UC1, cv::Scalar(0));
-        drawContours(blob_mask, contours, contourIdx, Scalar(1), CV_FILLED, LINE_8, noArray(), 0, -roi.tl());
+        drawContours(blob_mask, contours, contourIdx, Scalar(1), cv::FILLED, LINE_8, noArray(), 0, -roi.tl());
         Mat known_mask;
         cv::compare(orig_image(roi), m_unknown_pixel_value, known_mask, cv::CMP_NE);
         
@@ -311,7 +311,7 @@ void DepthBlobDetector::findBlobs(cv::Mat binary_image, cv::Mat orig_image, cv::
     ret_blobs.push_back(blob);
 
 #ifdef DEBUG_BLOB_DETECTOR //{
-    drawContours(keypointsImage, contours, contourIdx, Scalar(0, blob.avg_depth * 255.0 / params.max_depth, 0), CV_FILLED, LINE_4);
+    drawContours(keypointsImage, contours, contourIdx, Scalar(0, blob.avg_depth * 255.0 / params.max_depth, 0), cv::FILLED, LINE_4);
     circle(keypointsImage, blob.location, 1, Scalar(0, 0, 255), 1);
 #endif //}
   }
