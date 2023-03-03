@@ -115,7 +115,7 @@ int main(int argc, char** argv)
         try
         {
           cv::destroyWindow(dm_winname);
-        } catch (cv::Exception)
+        } catch (cv::Exception const&)
         {}
         raw_window_exists = false;
       }
@@ -134,7 +134,7 @@ int main(int argc, char** argv)
         try
         {
           cv::destroyWindow(det_winname);
-        } catch (cv::Exception)
+        } catch (cv::Exception const&)
         {}
         proc_window_exists = false;
       }
@@ -152,7 +152,7 @@ int main(int argc, char** argv)
         try
         {
           cv::destroyWindow(rgb_winname);
-        } catch (cv::Exception)
+        } catch (cv::Exception const&)
         {}
         rgb_window_exists = false;
       }
